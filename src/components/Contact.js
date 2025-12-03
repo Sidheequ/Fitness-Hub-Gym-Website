@@ -28,11 +28,11 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="contact">
+    <section id="contact" className="contact-section">
       <div className="container">
         <h2 className="section-title">Get In Touch</h2>
         <p className="section-subtitle">Ready to start your fitness journey? Contact us today!</p>
-        
+
         <div className="contact-content">
           <div className="contact-info">
             <div className="info-item">
@@ -101,6 +101,7 @@ const Contact = () => {
                 name="message"
                 placeholder="Your Message"
                 rows="5"
+                aria-label="Message"
                 value={formData.message}
                 onChange={handleChange}
                 required
@@ -110,12 +111,8 @@ const Contact = () => {
           </form>
         </div>
       </div>
-      
-      <footer className="footer">
-        <div className="container">
-          <p>&copy; 2025 Fitness Hub. All rights reserved.</p>
-        </div>
-      </footer>
+
+
     </section>
   );
 };

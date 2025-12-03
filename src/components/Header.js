@@ -4,6 +4,17 @@ import './Header.css';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -13,10 +24,10 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <div className="logo">
-          <h1>Fitness Hub</h1>
+          <i><h1>FITNESS HUB</h1></i>
         </div>
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           <a href="#home" onClick={() => scrollToSection('home')}>Home</a>
@@ -25,7 +36,7 @@ const Header = () => {
           <a href="#gallery" onClick={() => scrollToSection('gallery')}>Gallery</a>
           <a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a>
         </nav>
-        <button 
+        <button
           className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"

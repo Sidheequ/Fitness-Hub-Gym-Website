@@ -9,6 +9,8 @@ import Testimonials from './components/Testimonials';
 import Gallery from './components/Gallery';
 import GalleryDetail from './components/GalleryDetail';
 import Contact from './components/Contact';
+import Team from './components/Team';
+import Footer from './components/Footer';
 
 function App() {
   const [galleryImages, setGalleryImages] = useState([
@@ -154,13 +156,15 @@ function App() {
       <About />
       <Features features={features} onFeatureClick={setSelectedFeature} />
       <Testimonials />
-      <Gallery 
-        images={galleryImages} 
+      <Gallery
+        images={galleryImages}
         onImageUpload={handleImageUpload}
         onSeeMore={() => setShowGalleryDetail(true)}
         isAdmin={isAdmin}
       />
+      <Team />
       <Contact />
+      <Footer />
     </div>
   );
 }
