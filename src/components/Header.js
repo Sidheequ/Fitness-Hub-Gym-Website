@@ -20,6 +20,7 @@ const Header = () => {
         </div>
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           <a href="#home" onClick={() => scrollToSection('home')}>Home</a>
+          <a href="#about" onClick={() => scrollToSection('about')}>About</a>
           <a href="#features" onClick={() => scrollToSection('features')}>Features</a>
           <a href="#gallery" onClick={() => scrollToSection('gallery')}>Gallery</a>
           <a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a>
